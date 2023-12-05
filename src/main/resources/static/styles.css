@@ -1,0 +1,117 @@
+.home {
+    width: 1440px;
+    height: 2092px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    background: white
+}
+
+.header {
+    width: 1440px;
+    height: 108px;
+    position: relative;
+    display: flex;
+}
+
+.header-button {
+    height: 60px;
+    top: 20px;
+    border: none;
+    border-radius: 20px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+form button {
+    position: relative;
+    cursor: pointer;
+    font-size: 32px;
+    font-family: Inter,sans-serif;
+    font-weight: 600;
+    word-wrap: break-word
+}
+
+.Image1 {
+    width: 234px;
+    height: 360px;
+    left: 70px;
+    top: 20px;
+    margin-right: 28px;
+    position: relative
+}
+
+.Frame7 {
+    flex-wrap: wrap;
+    width: 1440px;
+    height: 520px;
+    left: 0px;
+    top: 100px;
+    position: relative
+}
+
+.movie-block {
+    display: inline-block;
+    width: 234px;
+    margin-right: 28px;
+}
+
+.movie-name {
+    left: 70px;
+    width: 240px;
+    margin-top: 20px;
+    position: relative;
+    cursor: pointer;
+    background-color: transparent;
+    color: #484FE4;
+    border: none;
+    text-align: left;
+    font-size: 28px;
+    font-family: Inter, sans-serif;
+    font-weight: 600;
+    word-wrap: break-word
+}
+
+.footer {
+    width: 1440px;
+    height: 200px;
+    bottom: 180px;
+    position: absolute;
+    flex-wrap: wrap;
+}
+
+.footer-block {
+    display: inline-block;
+    margin-left: 70px;
+}
+
+.footer-label {
+    margin-left: 5px;
+    position: relative;
+    background: linear-gradient(90deg, #8128F3 0%, rgba(208, 20, 20, 0.49) 97.4%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-color: transparent;
+    font-size: 32px;
+    font-family: Inter, sans-serif;
+    font-weight: 600;
+    word-wrap: break-word
+}
+
+.footer-button {
+    margin-top: 25px;
+    position: relative;
+    cursor: pointer;
+    background-color: transparent;
+    color: #484FE4;
+    border: none;
+    text-align: left;
+    font-size: 28px;
+    font-family: Inter, sans-serif;
+    font-weight: 500;
+    word-wrap: break-word
+}
