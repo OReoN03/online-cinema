@@ -1,19 +1,20 @@
 package com.example.onlinecinema.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotNull;
+import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 @Data
 @Entity
+@NoArgsConstructor(access=AccessLevel.PRIVATE, force=true)
+@RequiredArgsConstructor
 public class Country {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "country_id")
     private int id;
 
-    @NotNull
-    private String name;
+    private final String name;
 }

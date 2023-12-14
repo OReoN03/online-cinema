@@ -1,28 +1,27 @@
 package com.example.onlinecinema.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotNull;
+import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 @Data
 @Entity
+@NoArgsConstructor(access=AccessLevel.PRIVATE, force=true)
+@RequiredArgsConstructor
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "address_id")
     private int id;
-    @NotNull
-    private String country;
-    @NotNull
-    private String region;
-    @NotNull
-    private String locality;
-    @NotNull
-    private String street;
-    @NotNull
-    private String house;
-    @NotNull
-    private String postalCode;
+
+    @ManyToOne
+    private final Country country;
+
+    private final String region;
+    private final String locality;
+    private final String street;
+    private final String house;
+    private final String postalCode;
 }

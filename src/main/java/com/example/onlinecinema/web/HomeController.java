@@ -10,8 +10,8 @@ public class HomeController {
         return "home";
     }
 
-    @GetMapping("/movies")
-    public String movies() {
-        return "movies";
+    @GetMapping("/login")
+    public String login() {
+        return "login";
     }
 }

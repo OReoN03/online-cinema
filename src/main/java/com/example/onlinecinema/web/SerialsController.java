@@ -4,9 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class MoviesController {
-    @GetMapping("/movies")
-    public String movies() {
-        return "movies";
+public class SerialsController {
+    @GetMapping("/serials")
+    public String serials() {
+        return "serials";
     }
 }

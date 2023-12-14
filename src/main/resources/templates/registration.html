@@ -4,7 +4,9 @@
 <head>
     <title>Online Cinema</title>
     <link rel="stylesheet" th:href="@{/styles.css}"/>
+    <script src="/scripts/phone-mask.js"></script>
 </head>
+
 <body>
 <div class="home">
     <div class="header">
@@ -26,6 +28,50 @@
         <form method="GET" th:action="@{/login}">
             <button class="header-button" type="submit" style="left: 400px; background: linear-gradient(180deg, #3540A3 0%, rgba(74.65, 90.46, 232.69, 0.92) 44%, rgba(50.28, 69.11, 238.53, 0.50) 73%, rgba(21.48, 43.87, 245.44, 0) 100%); overflow: hidden; gap: 6px;">Войти</button>
         </form>
+    </div>
+
+    <div class="reg-form">
+    <label class="registration" style="">Регистрация</label>
+
+    <form method="POST" th:action="@{/register}" id="registrationForm">
+        <label class="reg-label" for="email">Почта: </label>
+        <input class="reg-input" type="text" name="email"/> <br/>
+
+        <label class="reg-label" for="password">Пароль: </label>
+        <input class="reg-input" type="password" name="password"/> <br/>
+
+        <label class="reg-label" for="fullname">ФИО: </label>
+        <input class="reg-input" type="text" name="fullname"/> <br/>
+
+        <label class="reg-label" for="phone">Номер телефона: </label>
+        <input class="phone-input" type="text" name="phone" data-phone-pattern/> <br/>
+
+        <label class="reg-label" for="birthDate">Дата рождения: </label>
+        <input class="reg-input" type="text" name="birthdate"/> <br/>
+
+        <label class="reg-label" for="gender">Пол: </label>
+        <input class="reg-input" type="text" name="gender"/> <br/>
+
+        <label class="reg-label" for="country">Страна: </label>
+        <input class="reg-input" type="text" name="country"/> <br/>
+
+        <label class="reg-label" for="region">Регион: </label>
+        <input class="reg-input" type="text" name="region"/> <br/>
+
+        <label class="reg-label" for="locality">Населённый пункт: </label>
+        <input class="reg-input" type="text" name="locality"/> <br/>
+
+        <label class="reg-label" for="street">Улица: </label>
+        <input class="reg-input" type="text" name="street"/> <br/>
+
+        <label class="reg-label" for="house">Дом: </label>
+        <input class="reg-input" type="text" name="house"/> <br/>
+
+        <label class="reg-label" for="postalCode">Почтовый индекс: </label>
+        <input class="reg-input" type="text" name="postalCode"/> <br/>
+
+        <input class="header-button" style="left: 50px; font-size: 28px; font-family: Inter,sans-serif; font-weight: 600; word-wrap: break-word; background: linear-gradient(180deg, #3540A3 0%, rgba(74.65, 90.46, 232.69, 0.92) 44%, rgba(50.28, 69.11, 238.53, 0.50) 73%, rgba(21.48, 43.87, 245.44, 0) 100%); overflow: hidden; gap: 6px;" type="submit" value="Зарегистрироваться"/>
+    </form>
     </div>
 
     <div class="footer">

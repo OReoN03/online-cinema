@@ -12,6 +12,7 @@ import java.util.List;
 public class Subscription {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "subscription_id")
     private int id;
 
     @NotNull
@@ -24,8 +25,14 @@ public class Subscription {
     private short period;
 
     @ManyToMany
+    @JoinTable(name = "movie_in_subscription",
+            joinColumns = {@JoinColumn(name = "movie_id")},
+            inverseJoinColumns = @JoinColumn(name = "subscription_id"))
     private List<Movie> movies;
 
     @ManyToMany
+    @JoinTable(name = "serial_in_subscription",
+            joinColumns = {@JoinColumn(name = "serial_id")},
+            inverseJoinColumns = @JoinColumn(name = "subscription_id"))
     private List<Serial> serials;
 }

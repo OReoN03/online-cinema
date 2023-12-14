@@ -8,10 +8,10 @@
 <body>
 <div class="home">
     <div class="header">
-        <form method="GET" th:action="@{/}">
+        <form method="GET" th:action="@{/static}">
             <button class="header-button" type="submit" style="left: 70px; background: none; color: #484FE4;">Online Cinema</button>
         </form>
-        <form method="GET" th:action="@{/movies}">
+        <form method="GET" th:action="@{/templates/movies}">
             <button class="header-button" type="submit" style="left: 100px; background: linear-gradient(180deg, #3540A3 0%, rgba(74.65, 90.46, 232.69, 0.92) 44%, rgba(50.28, 69.11, 238.53, 0.50) 73%, rgba(21.48, 43.87, 245.44, 0) 100%); overflow: hidden;">Фильмы</button>
         </form>
         <form method="GET" th:action="@{/serials}">
@@ -28,9 +28,7 @@
         </form>
     </div>
 
-    <img class="Onlinecinema" style="width: 1298px; height: 773px; display: block; margin-left: auto; margin-right: auto; top: 50px; position: relative" th:src="@{/images/OnlineCinema.jpeg}"/>
-
-    <div class="new">
+    <div class="Frame7">
         <form method="GET" th:action="@{/newMovies}">
             <button type="submit"
                     style="width: 150px; height: 42px; left: 71px; top: 10px;background: linear-gradient(90deg, #8128F3 0%, rgba(208, 20, 20, 0.49) 97.4%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-color: transparent; border: none;">
@@ -94,7 +92,7 @@
             <form method="GET" th:action="@{/account}">
                 <button class="footer-button" type="submit">Мой аккаунт</button>
             </form>
-            <form method="GET" th:action="@{/movies}">
+            <form method="GET" th:action="@{/templates/movies}">
                 <button class="footer-button" type="submit">Фильмы</button>
             </form>
             <form method="GET" th:action="@{/serials}">

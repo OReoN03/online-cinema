@@ -1,36 +1,65 @@
 package com.example.onlinecinema.domain;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
-import lombok.Data;
+import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDate;
+import java.util.Collection;
+import java.util.List;
 
 @Data
 @Entity
-public class User {
+@NoArgsConstructor(access=AccessLevel.PRIVATE, force=true)
+@RequiredArgsConstructor
+public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "user_id")
     private int id;
 
-    @NotNull
-    private String fullName;
-
-    @NotNull
-    private String email;
-
-    @NotNull
-    private String password;
-
-    @NotNull
-    private String phoneNumber;
-    private String gender;
-    private LocalDate birthDate;
+    private final String fullName;
+    private final String email;
+    private final String password;
+    private final String phoneNumber;
+    private final String gender;
+    private final LocalDate birthDate;
 
     @ManyToOne
     private Subscription subscription;
 
-    @NotNull
     @ManyToOne
-    private Address address;
+    private final Address address;
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority("ROLE_USER"));
+    }
+
+    @Override
+    public String getUsername() {
+        return fullName;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return false;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return false;
+    }
 }

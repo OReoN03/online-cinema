@@ -11,6 +11,7 @@ import java.time.LocalDate;
 public class Episode {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "episode_id")
     private int id;
 
     @NotNull
