@@ -2,27 +2,87 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Taco Cloud</title>
+    <title>Online Cinema</title>
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
 </head>
 
 <body>
-<h1>Login</h1>
+<div class="home">
+    <div class="header">
+        <form method="GET" th:action="@{/}">
+            <button class="header-button" type="submit" style="left: 70px; background: none; color: #484FE4;">Online Cinema</button>
+        </form>
+        <form method="GET" th:action="@{/movies}">
+            <button class="header-button" type="submit" style="left: 100px; background: linear-gradient(180deg, #3540A3 0%, rgba(74.65, 90.46, 232.69, 0.92) 44%, rgba(50.28, 69.11, 238.53, 0.50) 73%, rgba(21.48, 43.87, 245.44, 0) 100%); overflow: hidden;">Фильмы</button>
+        </form>
+        <form method="GET" th:action="@{/serials}">
+            <button class="header-button" type="submit" style="left: 120px; background: linear-gradient(180deg, #3540A3 0%, rgba(74.65, 90.46, 232.69, 0.92) 44%, rgba(50.28, 69.11, 238.53, 0.50) 73%, rgba(21.48, 43.87, 245.44, 0) 100%); overflow: hidden;">Сериалы</button>
+        </form>
+        <form method="GET" th:action="@{/search}">
+            <button class="header-button" type="submit" style="left: 360px; background: white; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) inset; overflow: hidden; border: 1px black solid; gap: 6px; color: black;">🔍Поиск</button>
+        </form>
+        <form method="GET" th:action="@{/subscription}">
+            <button class="header-button" type="submit" style="left: 380px; background: linear-gradient(90deg, rgba(85.50, 39.14, 144.50, 0) 0%, rgba(255, 65.87, 65.87, 0.60) 0%, #7000FF 99%); overflow: hidden;">Подписка</button>
+        </form>
+        <form method="GET" th:action="@{/login}">
+            <button class="header-button" type="submit" style="left: 400px; background: linear-gradient(180deg, #3540A3 0%, rgba(74.65, 90.46, 232.69, 0.92) 44%, rgba(50.28, 69.11, 238.53, 0.50) 73%, rgba(21.48, 43.87, 245.44, 0) 100%); overflow: hidden; gap: 6px;">Войти</button>
+        </form>
+    </div>
 
-<div th:if="${error}">
-    Unable to login. Check your username and password.
+    <div class="login-form">
+        <label class="login">Войти</label>
+
+        <div class="login-label" th:if="${error}">
+            Проверьте корректность почты и пароля
+        </div>
+
+        <p class="login-label">Впервые здесь?
+            <a class="login" style="margin-left: auto; font-size: 24px" th:href="@{/register}">Зарегистрируйся</a></p>
+
+        <form method="post" th:action="@{/login}" id="loginForm">
+            <label class="login-label" for="email">Почта:
+                <input class="reg-input" type="text" name="email" id="email"/><br/>
+            </label>
+
+            <label class="login-label" for="password">Пароль:
+                <input class="reg-input" type="password" name="password" id="password"/><br/>
+            </label>
+
+            <input class="header-button"
+                   style="left: 70px; font-size: 28px; font-family: Inter,sans-serif; font-weight: 600; word-wrap: break-word; background: linear-gradient(180deg, #3540A3 0%, rgba(74.65, 90.46, 232.69, 0.92) 44%, rgba(50.28, 69.11, 238.53, 0.50) 73%, rgba(21.48, 43.87, 245.44, 0) 100%); overflow: hidden; gap: 6px;"
+                   type="submit" value="Войти">
+        </form>
+    </div>
+
+    <div class="footer">
+        <div class="footer-block">
+            <label class="footer-label">О нас</label>
+
+            <form method="GET" th:action="@{/company}">
+                <button class="footer-button" type="submit">О компании</button>
+            </form>
+            <form method="GET" th:action="@{/agreement}">
+                <button class="footer-button" type="submit">Пользовательское соглашение</button>
+            </form>
+            <form method="GET" th:action="@{/confidentiality}">
+                <button class="footer-button" type="submit">Политика конфиденциальности</button>
+            </form>
+        </div>
+
+        <div class="footer-block">
+            <label class="footer-label">Разделы</label>
+
+            <form method="GET" th:action="@{/account}">
+                <button class="footer-button" type="submit">Мой аккаунт</button>
+            </form>
+            <form method="GET" th:action="@{/movies}">
+                <button class="footer-button" type="submit">Фильмы</button>
+            </form>
+            <form method="GET" th:action="@{/serials}">
+                <button class="footer-button" type="submit">Сериалы</button>
+            </form>
+        </div>
+    </div>
 </div>
-
-<p>New here? Click
-    <a th:href="@{/register}">here</a> to register.</p>
-
-<form method="post" th:action="@{/login}" id="loginForm">
-    <label for="username">Username: </label>
-    <input type="text" name="username" id="username" /><br/>
-
-    <label for="password">Password: </label>
-    <input type="password" name="password" id="password" /><br/>
-
-    <input type="submit" value="Login">
-</form>
 </body>
 </html>
