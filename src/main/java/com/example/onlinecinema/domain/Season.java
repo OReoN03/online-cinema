@@ -11,7 +11,7 @@ import java.util.List;
 @Entity
 public class Season {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "season_id")
     private int id;
 

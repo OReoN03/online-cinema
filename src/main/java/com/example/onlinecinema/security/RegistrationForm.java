@@ -1,5 +1,6 @@
 package com.example.onlinecinema.security;
 
+import com.example.onlinecinema.data.CountryRepository;
 import com.example.onlinecinema.domain.Address;
 import com.example.onlinecinema.domain.Country;
 import lombok.Data;
@@ -24,12 +25,14 @@ public class RegistrationForm {
     private String house;
     private String postalCode;
 
+    private CountryRepository countryRepository;
+
     public User toUser(PasswordEncoder passwordEncoder) {
         return new User(fullName, email, passwordEncoder.encode(password), phoneNumber, gender, birthDate, toAddress());
     }
 
     public Country toCountry() {
-        return new Country(country);
+        return countryRepository.findByName(country);
     }
 
     public Address toAddress() {

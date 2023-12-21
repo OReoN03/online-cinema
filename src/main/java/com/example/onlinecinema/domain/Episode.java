@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @Entity
 public class Episode {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "episode_id")
     private int id;
 

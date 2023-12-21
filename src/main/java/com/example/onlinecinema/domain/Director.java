@@ -8,7 +8,7 @@ import lombok.Data;
 @Entity
 public class Director {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "director_id")
     private int id;
 

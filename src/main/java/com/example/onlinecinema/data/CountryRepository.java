@@ -6,4 +6,5 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 public interface CountryRepository extends CrudRepository<Country, Address> {
+    Country findByName(String name);
 }

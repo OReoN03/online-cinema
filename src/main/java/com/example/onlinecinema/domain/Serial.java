@@ -11,7 +11,7 @@ import java.util.List;
 @Entity
 public class Serial {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "serial_id")
     private int id;
 
