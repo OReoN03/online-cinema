@@ -1,0 +1,12 @@
+package com.example.online_cinema.repository;
+
+import com.example.online_cinema.domain.User;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface UserRepository extends CrudRepository<User, Long> {
+    User findByFullName(String fullName);
+
+    User findByEmail(String email);
+}

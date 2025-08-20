@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-    var eventCalllback = function (e) {
-        var el = e.target,
+    let eventCalllback = function (e) {
+        let el = e.target,
             clearVal = el.dataset.phoneClear,
             pattern = el.dataset.phonePattern,
             matrix_def = "+7(___) ___-__-__",
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? "" : a
         });
     }
-    var phone_inputs = document.querySelectorAll('[data-phone-pattern]');
+    let phone_inputs = document.querySelectorAll('[data-phone-pattern]');
     for (let elem of phone_inputs) {
         for (let ev of ['input', 'blur', 'focus']) {
             elem.addEventListener(ev, eventCalllback);

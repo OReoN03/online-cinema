@@ -36,53 +36,58 @@
     <form method="POST" th:action="@{/register}" id="registrationForm">
         <div class="main-info-input">
             <label class="reg-label" for="email">Почта:
-                <input class="reg-input" type="text" name="email"/> <br/>
+                <input id ="email" class="reg-input" type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required/><br/>
             </label>
 
             <label class="reg-label" for="password">Пароль:
-                <input class="reg-input" type="password" name="password"/> <br/>
+                <input id ="password" class="reg-input" type="password" name="password"/> <br/>
             </label>
 
             <label class="reg-label" for="fullname">ФИО:
-                <input class="reg-input" type="text" name="fullname"/> <br/>
+                <input id ="fullname" class="reg-input" type="text" name="fullname"/> <br/>
             </label>
 
             <label class="reg-label" for="phone">Номер телефона:
-                <input class="reg-input" type="text" name="phone" data-phone-pattern/> <br/>
+                <input id ="phone" class="reg-input" type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required/> <br/>
             </label>
 
             <label class="reg-label" for="birthDate">Дата рождения:
-                <input class="reg-input" type="text" name="birthdate"/> <br/>
+                <input id ="birthDate" class="reg-input" type="date" name="birthDate"/> <br/>
             </label>
 
             <label class="reg-label" for="gender">Пол:
-                <input class="reg-input" type="text" name="gender"/> <br/>
+                <select id="gender" class="reg-input" name="gender">
+                    <option value="male">Мужской</option>
+                    <option value="female">Женский</option>
+                </select> <br/>
             </label>
         </div>
 
         <div class="address-input">
             <label class="reg-label" for="country">Страна:
-                <input class="reg-input" type="text" name="country"/> <br/>
+                <select id="country" class="reg-input" name="country">
+                    <option th:value="${country}" th:text="${country.name}" th:each="country : ${countries}"></option>
+                </select> <br/>
             </label>
 
             <label class="reg-label" for="region">Регион:
-                <input class="reg-input" type="text" name="region"/> <br/>
+                <input id="region" class="reg-input" type="text" name="region"/> <br/>
             </label>
 
             <label class="reg-label" for="locality">Населённый пункт:
-                <input class="reg-input" type="text" name="locality"/> <br/>
+                <input id="locality" class="reg-input" type="text" name="locality"/> <br/>
             </label>
 
             <label class="reg-label" for="street">Улица:
-                <input class="reg-input" type="text" name="street"/> <br/>
+                <input id="street" class="reg-input" type="text" name="street"/> <br/>
             </label>
 
             <label class="reg-label" for="house">Дом:
-                <input class="reg-input" type="text" name="house"/> <br/>
+                <input id="house" class="reg-input" type="text" name="house"/> <br/>
             </label>
 
             <label class="reg-label" for="postalCode">Почтовый индекс:
-                <input class="reg-input" type="text" name="postalCode"/> <br/>
+                <input id="postalCode" class="reg-input" type="text" name="postalCode"/> <br/>
             </label>
         </div>
 
