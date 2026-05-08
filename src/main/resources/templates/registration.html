@@ -4,7 +4,6 @@
 <head>
     <title>Online Cinema</title>
     <link rel="stylesheet" th:href="@{/styles.css}"/>
-    <script src="/scripts/phone-mask.js"></script>
 </head>
 
 <body>
@@ -36,7 +35,7 @@
     <form method="POST" th:action="@{/register}" id="registrationForm">
         <div class="main-info-input">
             <label class="reg-label" for="email">Почта:
-                <input id ="email" class="reg-input" type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required/><br/>
+                <input id ="email" class="reg-input" type="email" name="email" pattern="^\S+@\S+\.\S+$" required/><br/>
             </label>
 
             <label class="reg-label" for="password">Пароль:
@@ -52,7 +51,7 @@
             </label>
 
             <label class="reg-label" for="phone">Номер телефона:
-                <input id ="phone" class="reg-input" type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required/> <br/>
+                <input id ="phone" class="reg-input" type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890" required/> <br/>
             </label>
 
             <label class="reg-label" for="birthDate">Дата рождения:
