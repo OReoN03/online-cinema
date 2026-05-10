@@ -32,16 +32,20 @@
     <div class="login-form">
         <label class="login">Войти</label>
 
-        <div class="login-label" th:if="${error}">
-            Проверьте корректность почты и пароля
-        </div>
-
         <p class="login-label">Впервые здесь?
             <a class="login" style="margin-left: auto; font-size: 24px" th:href="@{/register}">Зарегистрируйся</a></p>
 
+        <div class="login-label-warn" th:if="${param.error}">
+            Проверьте корректность почты и пароля
+        </div>
+
+        <div class="login-label" th:if="${param.logout}">
+            Вы вышли из учетной записи
+        </div>
+
         <form method="post" th:action="@{/login}" id="loginForm">
             <label class="login-label" for="email">Почта:
-                <input class="reg-input" type="text" name="email" id="email"/><br/>
+                <input class="reg-input" type="email" name="email" id="email"/><br/>
             </label>
 
             <label class="login-label" for="password">Пароль:

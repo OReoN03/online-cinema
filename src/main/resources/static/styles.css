@@ -213,3 +213,17 @@ form button {
     line-height: normal;
 }
 
+.login-label-warn {
+    display: block;
+    padding-left: 70px;
+    padding-right: 50px;
+    padding-top: 15px;
+
+    color: #DF2B42;
+    font-family: Inter, sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+

@@ -17,6 +17,7 @@ public class RegistrationService {
         this.passwordEncoder = passwordEncoder;
     }
 
+    // TODO check uniqueness of email
     public void processRegistration(RegistrationForm form) {
         userRepository.save(form.toUser(passwordEncoder));
     }
