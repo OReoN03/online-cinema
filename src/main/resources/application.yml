@@ -1,9 +1,9 @@
 spring:
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/online_cinema
-    username: root
-    password: root
+    url: jdbc:mysql://mysql_db:3306/online_cinema
+    username: user
+    password: user
   sql:
     init:
       mode: always
@@ -11,6 +11,3 @@ spring:
     hibernate.ddl-auto: update
     generate-ddl: true
     show-sql: true
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQLDialect

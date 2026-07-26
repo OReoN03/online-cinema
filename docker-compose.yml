@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+  core:
+    build: .
+    restart: always
+    ports:
+      - ":8080"
+    depends_on:
+      mysql_db:
+        condition: service_healthy
+
+  mysql_db:
+    image: "mysql:latest"
+    restart: always
+    ports:
+      - ":3306"
+    environment:
+      MYSQL_DATABASE: online_cinema
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user
+      MYSQL_ROOT_PASSWORD: root
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      retries: 5
+      start_period: 10s
+      timeout: 10s
