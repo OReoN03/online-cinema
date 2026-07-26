@@ -6,14 +6,9 @@ import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-
-import com.example.online_cinema.domain.User;
-import com.example.online_cinema.repository.UserRepository;
 
 @Configuration
 @EnableMethodSecurity
@@ -24,15 +19,6 @@ public class SecurityConfig {
     }
 
     @Bean
-    public UserDetailsService userDetailsService(UserRepository userRepository) {
-        return email -> {
-            User user = userRepository.findByEmail(email);
-            if (user != null) return user;
-            throw new UsernameNotFoundException("User '" + email + "' not found");
-        };
-    }
-
-    @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
                 .authorizeHttpRequests((authorizeHttpRequests) -> authorizeHttpRequests
@@ -40,7 +26,8 @@ public class SecurityConfig {
                         .requestMatchers("/", "/**").permitAll())
                 .formLogin(form -> form
                         .loginPage("/login")
-                        .defaultSuccessUrl("/home"))
+                        .usernameParameter("email")
+                        .defaultSuccessUrl("/"))
                 .logout(Customizer.withDefaults())
                 .csrf(AbstractHttpConfigurer::disable)
                 .build();
