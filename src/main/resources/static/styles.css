@@ -51,7 +51,7 @@ form button {
     margin-right: auto;
     width: 1440px;
     height: 520px;
-    left: 0px;
+    left: 0;
     top: 100px;
     position: relative
 }
@@ -147,11 +147,6 @@ form button {
     justify-content: right;
 }
 
-.address-input {
-    display: inline-block;
-    justify-content: right;
-}
-
 .reg-label {
     display: block;
     padding-left: 50px;
@@ -171,7 +166,7 @@ form button {
     border: 1px solid #000;
     background: #FFF;
     background-blend-mode: darken;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25) inset;
 
     display: inline-flex;
 

@@ -13,25 +13,39 @@ import java.util.List;
 @Data
 @Entity
 @NoArgsConstructor(access=AccessLevel.PRIVATE, force=true)
-@RequiredArgsConstructor
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private int id;
 
-    private final String fullName;
-    private final String email;
-    private final String password;
-    private final String phoneNumber;
-    private final String gender;
-    private final LocalDate birthDate;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String password;
+    private String phoneNumber;
+    private String gender;
+    private LocalDate birthDate;
 
     @ManyToOne
     private Subscription subscription;
 
-    @ManyToOne
-    private final Address address;
+    public User(
+            String firstName,
+            String lastName,
+            String email,
+            String password,
+            String phoneNumber,
+            String gender,
+            LocalDate birthDate) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+        this.gender = gender;
+        this.birthDate = birthDate;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -40,7 +54,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return fullName;
+        return firstName + " " + lastName;
     }
 
     @Override

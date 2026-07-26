@@ -13,5 +13,8 @@ public class Director {
     private int id;
 
     @NotNull
-    private String name;
+    private String firstName;
+
+    @NotNull
+    private String lastName;
 }
