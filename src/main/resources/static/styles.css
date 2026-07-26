@@ -161,7 +161,22 @@ form button {
     line-height: normal;
 }
 
+.reg-label-warn {
+    display: block;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 30px;
+
+    color: #DF2B42;
+    font-family: Inter, sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
 .reg-input {
+    padding: 0 10px;
     border-radius: 20px;
     border: 1px solid #000;
     background: #FFF;
